@@ -78,7 +78,7 @@ Pts_surf = list(zip(*Pts_surf))
 # read in UAC and find values
 print(endo_dir)
 Pts_XYZ_0 = utils.read_pts(endo_dir + mesh_name_endo)
-Pts_ABC_0 = utils.read_pts(endo_dir + "Labelled_Coords_2D_Rescaling_N3")
+Pts_ABC_0 = utils.read_pts(endo_dir + "2D_UAC")
 
 xlist_abc_0 = []
 ylist_abc_0 = []
