@@ -1,0 +1,41 @@
+meshname = Test_epi_hole # Mesh name
+
+num_imp_regions = 1 # One region with modified conductivity
+imp_region[0].im = MBRDR # Sets conductivity for boundary elements (Border)
+
+bidomain = 1 # Uses the bidomain model (more accurate)
+experiment = 2
+
+# Intra- and extracellular conductivity
+# Values = 1 set the default conductivity
+
+num_gregions = 1
+gregion[0].g_et = 1
+gregion[0].g_el = 1
+gregion[0].g_en = 1
+gregion[0].g_il = 1
+gregion[0].g_it = 1
+gregion[0].g_in = 1
+
+# Applies conductivity parameters to elements with ID = 2
+gregion[0].num_IDs = 1
+gregion[0].ID[0] = 2
+
+# Use point sources for the elliptic and parabolic parts of the equations
+ellip_use_pt = 1
+parab_use_pt = 1
+
+num_stim = 2 
+# Stimulus 0 - Mitral Valve (MV)
+stimulus[0].start = 0
+stimulus[0].duration = 1
+stimulus[0].strength = 0 # Zero amplitude (effectively disabled!)
+stimulus[0].stimtype = 2
+stimulus[0].vtx_file = MV # Applied to nodes from file MV.vtx
+
+# Left Atrial Appendage (LAA)
+stimulus[1].start = 0
+stimulus[1].duration = 1
+stimulus[1].strength = 1 # Active stimulus
+stimulus[1].stimtype = 2
+stimulus[1].vtx_file = LAA  # Applied to nodes from file LAA.vtx
