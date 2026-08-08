@@ -325,7 +325,7 @@ pts2d_r = np.empty((len(pts), 3), float)
 for i in range(len(pts)):
     pts2d_r[i] = [1 - ls_lr[i], pa_ud_r[i], 0]
 
-mname = base_dir + "Labelled_Coords_2D_Rescaling_N3.vtk"
+mname = base_dir + "2D_UAC.vtk"
 utils.write_vtk(pts2d_r, elems, fiber, data, mname)
 
 # write 2D carp too
