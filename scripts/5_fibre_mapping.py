@@ -48,7 +48,7 @@ if not os.path.isdir(fibre_dir):
 print(base_dir)
 Pts_XYZ_1 = utils.read_pts(base_dir + mesh_name)
 Elems_XYZ_1 = utils.read_elem(base_dir + mesh_name)
-Pts_ABC_1 = utils.read_pts(base_dir + "Labelled_Coords_2D_Rescaling_N3")
+Pts_ABC_1 = utils.read_pts(base_dir + "2D_UAC")
 
 print(fibre_dir)
 Pts_XYZ_0 = utils.read_pts(fibre_dir + "Labelled")
