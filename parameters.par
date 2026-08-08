@@ -1,0 +1,68 @@
+#Parameter file
+simID                    = interpolation_linear
+
+#Meshname
+meshname                 = Fibres_Threshold_int_lin
+
+num_phys_regions         = 1
+phys_region[0].ptype     = 0
+phys_region[0].num_IDs   = 6
+phys_region[0].ID        = 11 13 21 23 25 27 
+
+dt                       = 20
+timedt                   = 1
+spacedt                  = 10
+sentinel_ID              = 0
+tend                     = 2500
+experiment               = 0
+parab_solve              = 1
+mass_lumping             = 0
+bidomain                 = 0
+bidm_eqv_mono            = 0
+cg_tol_ellip             = 1e-8 # conjugate gradient solver tolerance for elliptic problem
+
+#LATs
+num_LATs                 = 1
+lats[0].all              = 1
+lats[0].method           = 1
+lats[0].measurand        = 0
+lats[0].threshold        = -40
+
+num_imp_regions = 3
+
+#Myocardium (set default to Left atrium parameters)
+imp_region[0].im = Courtemanche
+imp_region[0].num_IDs = 0
+imp_region[0].ID = 11
+imp_region[0].im_param = "GNa*1.0,Gto*1.0,GKr*1.0,GCaL*1.0,GK1*1.0,factorGKur*1.0" 
+
+#LAA
+imp_region[1].im = Courtemanche
+imp_region[1].num_IDs = 1
+imp_region[1].ID  = 13
+imp_region[1].im_param = "GNa*1.0,Gto*1.0,GKr*1.0,GCaL*1.0,GK1*1.0,factorGKur*1.0" 
+
+#PV
+imp_region[2].im = Courtemanche
+imp_region[2].num_IDs  = 4
+imp_region[2].ID  = 21, 23, 25, 27
+imp_region[2].im_param = "GNa*1.0,Gto*1.0,GKr*1.0,GCaL*1.0,GK1*1.0,factorGKur*1.0" 
+ 
+
+#Conductivity values/Tissue properties
+num_gregions = 1
+gregion[0].ID = 11 13 21 23 25 27 
+gregion[0].g_il = 0.4
+gregion[0].g_it = 0.1
+ 
+#Stimulus setup
+#Please select the stimulation point according to the geometry of your model.
+
+num_stim = 1
+stim[0].ptcl.stimlist    = "0, 300, 590, 870, 1140, 1400, 1650, 1890, 2120, 2340"
+stim[0].ptcl.duration    = 5
+stim[0].pulse.strength   = 60
+stim[0].crct.type        = 0
+stim[0].elec.geom_type   = 1
+stim[0].elec.radius      = 250
+stim[0].elec.p0          = -8083.91 2212.21 -30001.6
