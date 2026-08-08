@@ -17,7 +17,7 @@ For the correct start of the fiber reconstruction pipeline and electrodynamic mo
 	(ii) pre-processed endocardial, epicardial, and wall thickness meshes.
 
 **Segmentation Guidelines**
-- CT segmentation can be performed in accordance with the standardized protocol developed by our group. A detailed guide containing filter settings, threshold values, and validation procedures is available in the [CT_Segmentation_Guide.pdf](). 
+- CT segmentation can be performed in accordance with the standardized protocol developed by our group. A detailed guide containing filter settings, threshold values, and validation procedures is available in the [CT_Segmentation_Guide.pdf](https://github.com/AnastasiyaSinitsyna/transmural_atrial_fiber_mapping/blob/main/CT_Segmentation_Guide/CT_Segmentation_Guide.pdf). 
 - For automated and reproducible segmentation of MRI data, it is recommended to use the [nnU-Net framework](https://github.com/MIC-DKFZ/nnUNet?spm=a2ty_o01.29997173.0.0.48c655fbGORS4Q), adapted to the tasks of cardiological imaging and showing high accuracy on thin-walled structures of the atria.
 
 All geometric models must be registered to a unified coordinate system. When utilizing pre-processed models, verify that the endocardial and epicardial surfaces are topologically compatible, exhibit no gaps at the pulmonary vein ostia or mitral annulus, and are properly prepared for volumetric tetrahedralization.
