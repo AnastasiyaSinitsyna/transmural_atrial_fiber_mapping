@@ -3,6 +3,26 @@ A computational pipeline for reconstructing patient-specific 3D left atrial mode
 
 ## Methodology
 
+The proposed pipeline consists of four main stages for patient-specific atrial fiber orientation mapping:
+
+### 1. Segmentation and Mesh Generation
+High-resolution cardiac CT images are segmented to extract endocardial and epicardial surfaces of the left atrium. The volumetric mesh is generated with appropriate resolution (0.4×0.4×0.625 mm³) to capture thin atrial wall structures.
+
+### 2. Universal Atrial Coordinates (UAC) Construction
+A standardized 3D coordinate system (α, β, γ) is established for each patient-specific geometry:
+- **Surface parametrization (α, β)**: Laplace-Dirichlet problem solved on the endocardial surface using anatomical landmarks
+- **Transmural coordinate (γ)**: Continuous field computed across the atrial wall thickness using the Laplace equation with endocardial (γ=0) and epicardial (γ=1) boundary conditions
+
+### 3. Atlas-Based Fiber Transfer
+Fiber orientations from a reference atlas are mapped to the patient geometry using the UAC system:
+- Surface fiber vectors are transferred via nearest-neighbor matching in the (α, β) parametric space
+- Transmural interpolation is performed using linear interpolation of 3D Cartesian vectors along the γ-coordinate
+
+### 4. Electrophysiological Simulations
+The reconstructed fiber fields are used in monodomain simulations with the Courtemanche-Ramirez-Nattel cell model to evaluate functional impact on wavefront propagation and local activation patterns.
+
+For detailed mathematical formulations and algorithmic descriptions, please refer to our manuscript ["under review"].
+Computed tomography data, including the segmented epicardial and endocardial surfaces as well as the reconstructed atrial wall models, are publicly available in the Zenodo repository at https://zenodo.org/records/21855641.
 
 
 ## Pre-processing
@@ -37,7 +57,7 @@ This pipeline relies on the following open-source tools and publicly available d
 ## Installation & Setup
 1. Clone the repository
 ```
-git clone https://github.com/.../atrial-fiber-modeling.git
+git clone https://github.com/.../atrial-fiber-modeling.git](https://github.com/AnastasiyaSinitsyna/transmural_atrial_fiber_mapping.git
 cd atrial-fiber-modeling
 ```
 
@@ -81,7 +101,10 @@ bash UAC_3d.sh $LAPath $DATA $PROJECT
 ```
 *See UAC_2d.sh and UAC_3d.sh for full parameterization and details*
 
-
+*To perform pacing protocol simulation run:*
+```
+mpiexec -n 32 openCARP +F parameters.par
+```
 ## Input & Output Formats
 Inputs:
 - `*.nrrd` / `*.vtk` : Raw segmented atrial meshes
