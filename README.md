@@ -57,8 +57,8 @@ This pipeline relies on the following open-source tools and publicly available d
 ## Installation & Setup
 1. Clone the repository
 ```
-git clone https://github.com/.../atrial-fiber-modeling.git](https://github.com/AnastasiyaSinitsyna/transmural_atrial_fiber_mapping.git
-cd atrial-fiber-modeling
+git clone https://github.com/AnastasiyaSinitsyna/transmural_atrial_fiber_mapping.git
+cd transmural_atrial_fiber_mapping
 ```
 
 2. Working with this pipeline is meant in a conda virtual environment. It includes related python packages:
