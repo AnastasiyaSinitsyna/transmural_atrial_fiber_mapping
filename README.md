@@ -88,7 +88,7 @@ export PROJECT=/path/to/UAC_Codes
 export PYTHONPATH=$PROJECT
 ```
 
-4. To install external tools please follow official guides for [openCARP], [Meshtool] and [Meshalyzer].
+4. To install external tools please follow official guides for [openCARP](https://opencarp.org/download/installation), [Meshtool](https://bitbucket.org/aneic/meshtool/src/master/) and [Meshalyzer](https://opencarp.org/download/installation/install-meshalyzer).
 
 ## Usage
 ...
